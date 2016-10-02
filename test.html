@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Test Harness</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.1.0/mocha.min.css">
+    </head>
+    <body>
+        <div id="mocha">
+            <!-- Test suite results will end up here -->
+        </div>
+
+        <!-- test dependencies -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="http://chaijs.com/chai.js"></script>
+        <script src="https://cdn.rawgit.com/domenic/sinon-chai/master/lib/sinon-chai.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.15.4/sinon.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.1.0/mocha.min.js"></script>
+
+        <script>
+            mocha.setup('bdd');
+        </script>
+
+        <!-- Source files under test -->
+
+
+        <!-- Test specs -->
+
+
+        <!-- Run the tests -->
+        <script>
+            mocha.checkLeaks();
+            mocha.globals(['jQuery']);
+            mocha.run();
+        </script>
+    </body>
+</html>

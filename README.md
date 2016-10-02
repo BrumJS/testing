@@ -1,2 +1,28 @@
-# testing
-A project to demonstrate JavaScript testing
+[![Build Status](https://travis-ci.org/BrumJS/testing.svg?branch=master)](https://travis-ci.org/BrumJS/testing)
+
+# JavaScript Testing
+
+A project to demonstrate JavaScript testing.
+
+## Getting Started
+
+    npm install
+    npm test
+
+## Running Tests Continuously
+
+The `npm test` command runs the all the tests once then exits.
+This is ideal for running in a build server but not for development.
+
+You can run the tests in continuous mode and make changes to files to 
+have the tests automatically re-run. To do this, run the following:
+
+    ./node_modules/karma/bin/karma start
+
+## Running Tests in a Browser
+
+Run a local web server and load `index.html` e.g:
+
+    npm install -g servedir
+    servedir
+    http://localhost:8000/test.html
