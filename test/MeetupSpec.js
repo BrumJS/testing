@@ -7,12 +7,34 @@ if(typeof(require) != 'undefined') {
 }
 
 describe('Creating Meetups', function() {
-  it('should correctly post a new meetup to the server', function() {
+  beforeEach(function setupEachTest() {
     sinon.stub($, 'ajax');
+  });
 
+  afterEach(function teardownEachTest() {
+    $.ajax.restore();
+  });
+
+  it('should correctly post a new meetup to the server', function() {
     var meetup = new BrumJS.Meetup();
     meetup.save();
 
     expect($.ajax).to.have.been.calledWithMatch({ url: '/meetups' });
+  });
+
+  it('should send the correct payload to the server', function() {
+    var meetup = new BrumJS.Meetup({
+      name: 'BrumJS October',
+      description: 'JavaScript testing'
+    });
+    meetup.save();
+
+    expect($.ajax).to.have.been.calledWithMatch({
+      url: '/meetups',
+      data: {
+        name: 'BrumJS October',
+        description: 'JavaScript testing'
+      }
+    });
   });
 });
