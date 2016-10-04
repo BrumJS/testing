@@ -1,8 +1,5 @@
-var expect;
 if(typeof(require) != 'undefined') {
-  expect = require('chai').expect;
-} else {
-  expect = window.chai.expect;
+  var expect = require('chai').expect;
 }
 
 describe('Hello World', function() {

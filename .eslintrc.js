@@ -5,7 +5,9 @@ module.exports = {
     },
     "globals": {
       "describe": true,
-       "it": true
+       "it": true,
+        "$": true,
+        "BrumJS": true
     },
     "extends": "eslint:recommended",
     "rules": {
