@@ -16,3 +16,11 @@ You can run the tests in continuous mode and make changes to files to
 have the tests automatically re-run. To do this, run the following:
 
     ./node_modules/karma/bin/karma start
+
+## Running Tests in a Browser
+
+Run a local web server and load `index.html` e.g:
+
+    npm install -g servedir
+    servedir
+    http://localhost:8000/index.html
