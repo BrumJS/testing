@@ -1,10 +1,4 @@
-if(typeof(require) != 'undefined') {
-  var chai = require('chai');
-  var sinon = require('sinon');
-  var sinonChai = require('sinon-chai');
-  chai.use(sinonChai);
-  var expect = chai.expect;
-}
+var expect = chai.expect;
 
 describe('Creating Meetups', function() {
   beforeEach(function setupEachTest() {

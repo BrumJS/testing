@@ -10,7 +10,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['browserify', 'mocha'],
+    frameworks: ['mocha'],
 
     client: {
       mocha: {
@@ -21,7 +21,13 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js',
       'src/**/*.js',
+      'http://chaijs.com/chai.js',
+      'https://cdn.rawgit.com/domenic/sinon-chai/master/lib/sinon-chai.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.15.4/sinon.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/mocha/3.1.0/mocha.min.js',
+      'test/bootstrap.js',
       'test/**/*Spec.js'
     ],
 
@@ -34,11 +40,6 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/**/*.js': ['browserify']
-    },
-
-    browserify: {
-      debug: true
     },
 
     // test results reporter to use

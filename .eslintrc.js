@@ -4,6 +4,8 @@ module.exports = {
         "node": true,
     },
     "globals": {
+      "chai": true,
+      "sinon": true,
       "describe": true,
        "it": true,
         "beforeEach": true,
