@@ -28,7 +28,8 @@ describe('Meetups', function() {
   describe('Persisting Meetups', function() {
 
     beforeEach(function setupEachTest() {
-      sinon.stub($, 'ajax');
+      this.server = sinon.fakeServer.create();
+
       this.meetup = new BrumJS.Meetup({
         name: 'BrumJS October',
         date: '2016-10-20',
@@ -37,28 +38,22 @@ describe('Meetups', function() {
     });
 
     afterEach(function teardownEachTest() {
-      $.ajax.restore();
+      this.server.restore();
     });
 
     it('should correctly post a new meetup to the server', function() {
       this.meetup.save();
-
-      expect($.ajax).to.have.been.calledWithMatch({
-        method: 'POST',
-        url: '/meetups'
-      });
+      expect(this.server.requests[0].url).to.equal('/meetups');
+      expect(this.server.requests[0].method).to.equal('POST');
     });
 
     it('should send the correct payload to the server', function() {
       this.meetup.save();
 
-      expect($.ajax).to.have.been.calledWithMatch({
-        url: '/meetups',
-        data: {
-          name: 'BrumJS October',
-          date: '2016-10-20',
-          description: 'JavaScript testing'
-        }
+      expect(JSON.parse(this.server.requests[0].requestBody)).to.deep.equal({
+        name: 'BrumJS October',
+        date: '2016-10-20',
+        description: 'JavaScript testing'
       });
     });
 
@@ -69,7 +64,7 @@ describe('Meetups', function() {
       });
       meetup.save();
 
-      expect($.ajax).not.to.have.been.called;
+      expect(this.server.requests.length).to.equal(0);
     });
   });
 });

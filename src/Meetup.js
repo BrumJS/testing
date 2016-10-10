@@ -22,7 +22,7 @@ BrumJS.Meetup.prototype.save = function() {
     $.ajax({
       url: '/meetups',
       method: 'POST',
-      data: this.meetup
+      data: JSON.stringify(this.meetup)
     });
   }
 };
