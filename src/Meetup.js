@@ -17,12 +17,14 @@ BrumJS.Meetup.prototype.isValid = function() {
   return true;
 };
 
-BrumJS.Meetup.prototype.save = function() {
+BrumJS.Meetup.prototype.save = function(success, error) {
   if(this.isValid()) {
     $.ajax({
       url: '/meetups',
       method: 'POST',
-      data: JSON.stringify(this.meetup)
+      data: JSON.stringify(this.meetup),
+      success: success,
+      error: error
     });
   }
 };

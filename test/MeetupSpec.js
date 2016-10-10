@@ -66,5 +66,33 @@ describe('Meetups', function() {
 
       expect(this.server.requests.length).to.equal(0);
     });
+
+    it('should trigger the success callback on receiving a 201', function() {
+      var successCallback = sinon.spy();
+
+      this.server.respondWith('POST', '/meetups', [201, {
+        'Content-Type': 'application/json'
+      }, '{}']);
+
+      this.meetup.save(successCallback);
+
+      this.server.respond();
+
+      expect(successCallback).to.have.been.called;
+    });
+
+    it('should trigger the error callback on failure', function() {
+      var errorCallback = sinon.spy();
+
+      this.server.respondWith('POST', '/meetups', [500, {
+        'Content-Type': 'application/json'
+      }, '']);
+
+      this.meetup.save(null, errorCallback);
+
+      this.server.respond();
+
+      expect(errorCallback).to.have.been.called;
+    });
   });
 });
