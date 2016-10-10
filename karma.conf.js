@@ -27,7 +27,6 @@ module.exports = function(config) {
       'https://cdn.rawgit.com/domenic/sinon-chai/master/lib/sinon-chai.js',
       'https://cdnjs.cloudflare.com/ajax/libs/sinon.js/1.15.4/sinon.min.js',
       'https://cdnjs.cloudflare.com/ajax/libs/mocha/3.1.0/mocha.min.js',
-      'test/bootstrap.js',
       'test/**/*Spec.js'
     ],
 
