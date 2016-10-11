@@ -25,4 +25,4 @@ Run a local web server and load `index.html` e.g:
 
     npm install -g servedir
     servedir
-    http://localhost:8000/index.html
+    http://localhost:8000/test.html
