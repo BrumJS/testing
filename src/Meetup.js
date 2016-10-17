@@ -1,7 +1,11 @@
 var BrumJS = BrumJS || {};
 
 BrumJS.Meetup = function(meetup) {
-  this.meetup = meetup;
+  this.meetup = meetup || {};
+};
+
+BrumJS.Meetup.prototype.addData = function(key, value) {
+  this.meetup[key] = value;
 };
 
 BrumJS.Meetup.prototype.isValid = function() {
